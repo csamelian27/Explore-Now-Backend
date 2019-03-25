@@ -1,11 +1,12 @@
 class Api::V1::AuthController < ApplicationController
-  skip_before_action :authorized, only: [:create]
+  skip_before_action :authorized, only: [:create, :show]
 
   def show
     jwt = request.headers['Authorization']
-    id = JWT.decode(jwt, "hello")[0]["user_id"]
+    without = jwt.split('Bearer ')
+    id = JWT.decode(without[1], "hello")[0]["user_id"]
     @user = User.find(id)
-    render json: {user: @user}
+    render json: @user
   end
 
   def create # POST /api/v1/login
@@ -20,7 +21,6 @@ class Api::V1::AuthController < ApplicationController
   end
 
   private
-
   def user_login_params
     # { user: { username: 'Chandler Bing', password: 'hi' } }
     params.require(:user).permit(:email, :password)

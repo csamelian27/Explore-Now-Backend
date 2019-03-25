@@ -23,10 +23,10 @@ ActiveRecord::Schema.define(version: 2019_03_22_144346) do
   end
 
   create_table "experiences", force: :cascade do |t|
-    t.datetime "date"
+    t.string "date"
     t.integer "user_id"
     t.integer "activity_id"
-    t.boolean "worth_it?"
+    t.boolean "worth_it?", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
