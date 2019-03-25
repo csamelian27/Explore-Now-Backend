@@ -1,5 +1,5 @@
 class ActivitySerializer < ActiveModel::Serializer
-  attributes :id, :category, :location
+  attributes :id, :term, :location
 
   has_many :experiences
   has_many :users, through: :experiences

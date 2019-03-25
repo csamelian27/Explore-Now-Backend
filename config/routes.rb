@@ -4,6 +4,7 @@ Rails.application.routes.draw do
       resources :experiences
       resources :activities
       resources :users
+      get '/current_user', to: 'auth#show'
       post '/login', to: 'auth#create'
       get '/profile', to: 'users#profile'
     end

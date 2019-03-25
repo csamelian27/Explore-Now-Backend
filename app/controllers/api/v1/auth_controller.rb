@@ -1,6 +1,13 @@
 class Api::V1::AuthController < ApplicationController
   skip_before_action :authorized, only: [:create]
 
+  def show
+    jwt = request.headers['Authorization']
+    id = JWT.decode(jwt, "hello")[0]["user_id"]
+    @user = User.find(id)
+    render json: {user: @user}
+  end
+
   def create # POST /api/v1/login
     @user = User.find_by(email: user_login_params[:email])
     # @user.authenticate('password')
