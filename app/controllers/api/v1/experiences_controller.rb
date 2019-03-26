@@ -1,9 +1,20 @@
 class Api::V1::ExperiencesController < ApplicationController
-  skip_before_action :authorized, only: [:create]
+  skip_before_action :authorized, only: [:create, :update, :destroy]
 
   def create
     @experience = Experience.create(experience_params)
     render json: @experience
+  end
+
+  def update
+    @experience = Experience.find(params[:id])
+    @experience.update(experience_params)
+    render json: @experience
+  end
+
+  def destroy
+    @experience = Experience.find(params[:id])
+    @experience.delete
   end
 
   private
