@@ -9,7 +9,7 @@ class Api::V1::ActivitiesController < ApplicationController
 
   private
   def activity_params
-    params.require(:activity).permit(:term, :location)
+    params.require(:activity).permit(:term, :location, :name, :image_url, :url, :rating, :display_phone)
   end
 
 end

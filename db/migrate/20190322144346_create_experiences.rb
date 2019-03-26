@@ -4,8 +4,8 @@ class CreateExperiences < ActiveRecord::Migration[5.2]
       t.string :date
       t.integer :user_id
       t.integer :activity_id
-      t.boolean :worth_it?
-      t.boolean :complete?
+      t.boolean :worth_it
+      t.boolean :complete, default: false
 
       t.timestamps
     end

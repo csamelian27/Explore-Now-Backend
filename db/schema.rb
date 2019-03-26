@@ -16,6 +16,11 @@ ActiveRecord::Schema.define(version: 2019_03_22_144346) do
   enable_extension "plpgsql"
 
   create_table "activities", force: :cascade do |t|
+    t.string "name"
+    t.string "image_url"
+    t.string "url"
+    t.integer "rating"
+    t.string "display_phone"
     t.string "term"
     t.string "location"
     t.datetime "created_at", null: false
@@ -26,7 +31,8 @@ ActiveRecord::Schema.define(version: 2019_03_22_144346) do
     t.string "date"
     t.integer "user_id"
     t.integer "activity_id"
-    t.boolean "worth_it?", default: false
+    t.boolean "worth_it"
+    t.boolean "complete", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

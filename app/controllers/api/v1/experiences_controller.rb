@@ -8,7 +8,7 @@ class Api::V1::ExperiencesController < ApplicationController
 
   private
   def experience_params
-    params.require(:experience).permit(:date, :user_id, :activity_id, :worth_it?, :complete?)
+    params.require(:experience).permit(:date, :user_id, :activity_id, :worth_it, :complete)
   end
 
 end
