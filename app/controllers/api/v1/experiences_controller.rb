@@ -9,7 +9,8 @@ class Api::V1::ExperiencesController < ApplicationController
   def update
     @experience = Experience.find(params[:id])
     @experience.update(experience_params)
-    render json: @experience
+    @user = User.all.find(experience_id = @experience.id)
+    render json: @user
   end
 
   def destroy
@@ -19,7 +20,7 @@ class Api::V1::ExperiencesController < ApplicationController
 
   private
   def experience_params
-    params.require(:experience).permit(:date, :user_id, :activity_id, :worth_it, :complete)
+    params.require(:experience).permit(:current_time, :set_minutes, :user_id, :activity_id, :worth_it, :complete)
   end
 
 end
