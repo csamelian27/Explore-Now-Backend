@@ -9,7 +9,7 @@ class Api::V1::ExperiencesController < ApplicationController
   def update
     @experience = Experience.find(params[:id])
     @experience.update(experience_params)
-    @user = User.all.find(experience_id = @experience.id)
+    @user = User.find(@experience.user_id)
     render json: @user
   end
 
