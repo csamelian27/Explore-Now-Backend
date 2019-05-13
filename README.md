@@ -1,25 +1,32 @@
-# README
+# Explore The Now
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+>A Low commitment app to maximize the NOW
 
-Things you may want to cover:
+You must create/sign into an account to be able to use this website.
 
-* Ruby version
+### Link to Frontend
+https://github.com/csamelian27/explore-the-now-frontend
 
-* System dependencies
+## Demo Video
+https://vimeo.com/332568343
 
-* Configuration
 
-* Database creation
 
-* Database initialization
+## Run
+>**Make sure you have Postgresql running**
 
-* How to run the test suite
+1. bundle install
+2. rails db:create
+3. rails db:migrate
 
-* Services (job queues, cache servers, search engines, etc.)
+## Built With
+Ruby on Rails (Backend)
 
-* Deployment instructions
+React.js & Redux.js (Frontend)
 
-* ...
-# Explore-Now-Backend
+Semantic UI React
+
+AWS S3
+
+### Created by
+Cassidy Samelian https://github.com/csamelian27
