@@ -3,7 +3,9 @@ class Api::V1::AuthController < ApplicationController
 
   def show
     jwt = request.headers['Authorization']
-    without = jwt.split('Bearer ')
+    if jwt
+      without = jwt.split('Bearer ')
+    end
     id = JWT.decode(without[1], "hello")[0]["user_id"]
     @user = User.find(id)
     render json: @user
