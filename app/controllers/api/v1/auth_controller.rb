@@ -6,9 +6,9 @@ class Api::V1::AuthController < ApplicationController
     if jwt
       without = jwt.split('Bearer ')
       id = JWT.decode(without[1], "hello")[0]["user_id"]
+      @user = User.find(id)
+      render json: @user
     end
-    @user = User.find(id)
-    render json: @user
   end
 
   def create # POST /api/v1/login
